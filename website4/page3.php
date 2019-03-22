@@ -1,8 +1,7 @@
-<?php
+<?php 
     session_start();
-    
-    $name = $_SESSION['name']    
-    $email = $_SESSION['email'];
+
+    $name = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +13,6 @@
     <title>PHP Sessions</title>
 </head>
 <body>
-    <h5>Thank you <?php echo $name; ?>, you have subscribed with the email <?php echo $email; ?>.</h5>
-    <a href="page3.php">Go To Page 3</a>
+    <h3>Hello <?php echo $name ?>.</h3>
 </body>
 </html>
