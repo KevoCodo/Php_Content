@@ -1,12 +1,21 @@
 <?php
+    require('config/config.php');
+    require('config/db.php');
+
     //Check for submit
     if(isset($_POST['submit'])){
         // Get form data
-        $title = mysqli_real_escape_string($_POST['title']);
-        $body = mysqli_real_escape_string($_POST['body']);
-        $author = mysqli_real_escape_string($_POST['author']);
+        $title = mysqli_real_escape_string($_POST['title'], $conn);
+        $body = mysqli_real_escape_string($_POST['body'], $conn);
+        $author = mysqli_real_escape_string($_POST['author'], $conn);
 
         $query = "INSERT INTO posts(title, author, body) VALUES('$title', '$author', '$body')";
+        
+        if(mysqli_query($conn, $query)){
+            header('Location: '.ROOT_URL. '');
+        }else {
+            echo 'ERROR: '. mysqli_error($conn);
+        }
     }
 ?>
 
