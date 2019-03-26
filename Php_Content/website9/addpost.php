@@ -1,38 +1,18 @@
 <?php
-<<<<<<< HEAD
-    require('config/config.php');
-    require('config/db.php');
-=======
->>>>>>> 2b6591112cf599e53237bea7ffccc0a4d54b2f51
-
     //Check for submit
     if(isset($_POST['submit'])){
         // Get form data
-<<<<<<< HEAD
-        $title = mysqli_real_escape_string($_POST['title'], $conn);
-        $body = mysqli_real_escape_string($_POST['body'], $conn);
-        $author = mysqli_real_escape_string($_POST['author'], $conn);
-=======
         $title = mysqli_real_escape_string($conn, $_POST['title']);
         $body = mysqli_real_escape_string($conn, $_POST['body']);
         $author = mysqli_real_escape_string($conn, $_POST['author']);
->>>>>>> 2b6591112cf599e53237bea7ffccc0a4d54b2f51
 
         $query = "INSERT INTO posts(title, author, body) VALUES('$title', '$author', '$body')";
         
         if(mysqli_query($conn, $query)){
-<<<<<<< HEAD
             header('Location: '.ROOT_URL. '');
         }else {
             echo 'ERROR: '. mysqli_error($conn);
         }
-=======
-            header('Location: '.ROOT_URL.'');
-        }else{
-            echo 'ERROR: '.mysqli_error($conn);
-        }
-    
->>>>>>> 2b6591112cf599e53237bea7ffccc0a4d54b2f51
     }
 ?>
 
